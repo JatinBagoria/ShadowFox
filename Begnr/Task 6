@@ -1,0 +1,47 @@
+# Task: Dictionary
+
+# 1. List of friends and name length as tuples
+friends = ["Aman", "Riya", "Sourav", "Neha", "Aditya"]
+friend_lengths = [(name, len(name)) for name in friends]
+print("Friend Name & Lengths:", friend_lengths)
+
+# 2. Track trip expenses for you and your partner
+your_expenses = {
+    "Hotel": 1200,
+    "Food": 800,
+    "Transportation": 500,
+    "Attractions": 300,
+    "Miscellaneous": 200
+}
+
+partner_expenses = {
+    "Hotel": 1000,
+    "Food": 900,
+    "Transportation": 600,
+    "Attractions": 400,
+    "Miscellaneous": 150
+}
+
+# Calculate total
+your_total = sum(your_expenses.values())
+partner_total = sum(partner_expenses.values())
+
+print("\nYour total expenses:", your_total)
+print("Partner's total expenses:", partner_total)
+
+# Who spent more?
+if your_total > partner_total:
+    print("You spent more than your partner.")
+elif your_total < partner_total:
+    print("Your partner spent more than you.")
+else:
+    print("You both spent the same amount.")
+
+# Find category with highest difference
+differences = {}
+for category in your_expenses:
+    diff = abs(your_expenses[category] - partner_expenses[category])
+    differences[category] = diff
+
+max_diff_category = max(differences, key=differences.get)
+print(f"The biggest spending difference is in: {max_diff_category} with ₹{differences[max_diff_category]} difference.")
